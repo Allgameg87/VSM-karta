@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VSM Карта: Процесс Продаж</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --success-color: #2ecc71;
+            --background: #f8f9fa;
+            --gradient: linear-gradient(135deg, #f8f9fa, #e5eaf5);
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--background);
+            color: var(--primary-color);
+            line-height: 1.5;
+        }
+
+        header {
+            background: var(--primary-color);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            position: relative;
+        }
+
+        h1 {
+            color: var(--secondary-color);
+            text-align: center;
+            margin: 1.5rem 0;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .vsm-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .process-step {
+            background: white;
+            border-radius: 10px;
+            padding: 1.2rem;
+            width: 180px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .process-step:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .process-step h3 {
+            margin: 0 0 0.8rem;
+            color: var(--primary-color);
+            font-size: 1rem;
+        }
+
+        .process-step .loss,
+        .process-step .improvement {
+            font-style: italic;
+            margin-top: 0.8rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            display: inline-block;
+            position: relative;
+            font-size: 0.8rem;
+        }
+
+        .process-step .loss {
+            background: linear-gradient(45deg, #ff7675, #fd5d6d);
+            color: white;
+        }
+
+        .process-step .improvement {
+            background: linear-gradient(45deg, #27ae60, #1abc9c);
+            color: white;
+        }
+
+        .process-step .loss::before,
+        .process-step .improvement::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -18px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 8px 12px 8px 0;
+            border-color: transparent;
+        }
+
+        .process-step .loss::before {
+            border-right-color: linear-gradient(45deg, #ff7675, #fd5d6d);
+        }
+
+        .process-step .improvement::before {
+            border-right-color: linear-gradient(45deg, #27ae60, #1abc9c);
+        }
+
+        .arrow {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin: 0 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .arrow:hover {
+            transform: scale(1.15);
+        }
+
+        @media (max-width: 768px) {
+            .process-step {
+                width: 100%;
+            }
+        }
+
+        /* Дополнительные элементы */
+        .loss-description {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: var(--gradient);
+            border-radius: 12px;
+            text-align: left;
+        }
+
+        .loss-description h2 {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+        }
+
+        .loss-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .loss-list li {
+            margin-bottom: 0.3rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .loss-list li::before {
+            content: '\f05a';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+            top: 0.1rem;
+        }
+
+        .improvement-list li::before {
+            content: '\f00c';
+            color: var(--success-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Анализ потерь и оптимизация процесса продаж</h1>
+        <p>Визуализация потерь и их устранение с помощью VSM-карт</p>
+    </header>
+
+    <div class="container">
+        <h1>VSM Карта до оптимизации</h1>
+        <div class="vsm-container">
+            <div class="process-step">
+                <h3>Лиды</h3>
+            </div>
+            <div class="arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="process-step">
+                <h3>Первичный<br>контакт</h3>
+                <div class="loss">Потери<br>информации</div>
+            </div>
+            <div class="arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="process-step">
+                <h3>Предварительная<br>оценка</h3>
+                <div class="loss">Перемещение</div>
+            </div>
+            <div class="arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="process-step">
+                <h3>Подготовка<br>презентации</h3>
+                <div class="loss">Ожидание</div>
+            </div>
+            <div class="arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="process-step">
+                <h3>Встреча<br>с клиентом</h3>
+                <div class="loss">Инвентарь</div>
+            </div>
+            <div class="arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="process-step">
+                <h3>Договоренности</h3>
+                <div class="loss">Переработка</div>
+            </div>
+            <div class="arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="process-step">
+                <h3>Договоры</h3>
+            </div>
+        </div>
+
+        <h1>VSM Карта после оптимизации</h1>
+        <div class="vsm-container">
+            <div class="process-step">
+                <h3>Лиды</h3>
+            </div>
+            <div class="arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="process-step">
+                <h3>Первичный<br>контакт</h3>
+                <div class="improvement">CRM</div>
+            </div>
+            <div class="arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="process-step">
+                <h3>Предварительная<br>оценка</h3>
+                <div class="improvement">Стандарт</div>
+            </div>
+            <div class="arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="process-step">
+                <h3>Подготовка<br>презентации</h3>
+                <div class="improvement">Кросс-команды</div>
+            </div>
+            <div class="arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="process-step">
+                <h3>Встреча<br>с клиентом</h3>
+                <div class="improvement">Обучение</div>
+            </div>
+            <div class="arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="process-step">
+                <h3>Договоры</h3>
+            </div>
+        </div>
+
+        <!-- Дополнительное описание -->
+        <div class="loss-description">
+            <h2>Классификация потерь:</h2>
+            <ul class="loss-list">
+                <li>Потери информации</li>
+                <li>Перемещение данных</li>
+                <li>Ожидание ответа</li>
+                <li>Инвентарь документов</li>
+                <li>Переработка данных</li>
+            </ul>
+            <h2>Улучшения:</h2>
+            <ul class="improvement-list">
+                <li>CRM-система</li>
+                <li>Стандартизация</li>
+                <li>Кросс-команды</li>
+                <li>Обучение</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
